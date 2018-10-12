@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/pop-web.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+
+      <section id="article-title">
+        <h1>Cite a website article</h1>
+        <label>
+          <p>Article title</p>
+          <input type="text" id="article-title-input">
+        </label>
+        <label>
+          <p>URL</p>
+          <input type="url" id="url">
+        </label>
+      </section>
+
+      <section id="author-section">
+        <h2>Author information</h2>
+        <div class="author-form">
+          <label>
+            <p>First name</p>
+            <input type="text" id="author1-first-name">
+          </label>
+          <label>
+            <p>Last name (or organization)</p>
+            <input type="text" id="author1-last-name">
+          </label>
+        </div>
+        <div id="extra-authors">
+
+        </div>
+        <a href="#" id="add-author">+ Add another author</a>
+      </section>
+
+      <section id="article">
+        <h2>Publication date</h2>
+        <div class="date-form">
+          <label>
+            <p>Day</p>
+            <input type="number" id="day">
+          </label>
+          <label>
+            <p>Month</p>
+            <select id="month">
+              <option value="">-</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </label>
+          <label>
+            <p>Year</p>
+            <input type="number" id="year">
+          </label>
+        </div>
+
+      </section>
+
+      <section id="submit-section">
+        <button type="button" id="submit-btn">Create APA citation</button>
+      </section>
+
+      <section id="citation-section" class="hidden">
+        <h2>APA Citation</h2>
+        <div id="citation-area">
+          <p id="citation">---</p>
+          <div class="tooltip-holder">
+            <img class="clippy" id="copy" class="btn" src="img/copy.svg" alt="Copy to clipboard" data-clipboard-action="copy" data-clipboard-target="#citation">
+            <div class="tooltip hidden" id="copy-tooltip">
+              Copied!
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  <script src="js/cite.js" charset="utf-8"></script>
+
+</html>

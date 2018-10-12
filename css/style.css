@@ -1,0 +1,79 @@
+section {
+  padding-bottom: 32px;
+}
+
+.author-form, .date-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author-form label {
+  width: calc(50% - 16px);
+}
+
+.date-form label {
+  width: calc(50% - 16px);
+}
+
+.date-form label:first-child, .date-form label:last-child {
+  width: calc(25% - 16px);
+}
+
+input[type=text], input[type=number], input[type=url] {
+  width: 100% !important;
+}
+
+#add-author {
+  display: inline-block;
+  padding: 16px 0;
+  text-decoration: none;
+}
+
+#citation-area {
+  background: #e0e0e0;
+  padding: 16px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#citation {
+  width: calc(100% - 24px - 16px);
+}
+
+#copy {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#copy:hover {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+/* Tooltip text */
+
+.tooltip-holder {
+  position: relative;
+}
+
+#copy-tooltip {
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+    position: absolute;
+    left: -48px;
+    z-index: 1;
+}
