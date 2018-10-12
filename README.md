@@ -1,5 +1,7 @@
 # Citation Helper
-A citation helper website (without ads!)
+A citation helper website (without ads!).
+
+Available at https://kylecorry.com/citation-helper/
 
 ## Features
 * Create a citation for a website (manual entry) (APA)
