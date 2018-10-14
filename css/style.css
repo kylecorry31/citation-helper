@@ -41,6 +41,18 @@ input[type=text], input[type=number], input[type=url] {
   justify-content: space-between;
 }
 
+#submit-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#submit-section p {
+  margin-left: 8px;
+  margin-right: 0px;
+}
+
 #citation {
   width: calc(100% - 24px - 16px);
 }
@@ -76,4 +88,22 @@ input[type=text], input[type=number], input[type=url] {
     position: absolute;
     left: -48px;
     z-index: 1;
+}
+
+.thin-btn {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: thin;
+}
+
+.thin-btn:hover {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.thin-btn:focus:hover, .thin-btn:focus {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.08);
 }

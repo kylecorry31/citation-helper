@@ -18,6 +18,8 @@ clipboard.on('success', function(e) {
     e.clearSelection();
 });
 
+id('clear-btn').addEventListener('click', resetForm);
+
 id('submit-btn').addEventListener('click', (event) => {
   var citation = createCitation(createArticleInfo());
   id('citation').innerHTML = citation;
@@ -43,6 +45,18 @@ id('add-author').addEventListener('click', (event) => {
   id('extra-authors').appendChild(div);
 
 })
+
+function resetForm(){
+  id('extra-authors').innerHTML = "";
+  id('citation-section').classList.add('hidden');
+  authorCount = 1;
+  let inputs = document.getElementsByTagName('input');
+  for(var i = 0; i < inputs.length; i++){
+    inputs[i].value = "";
+  }
+
+  id('month').value = "";
+}
 
 function createArticleInfo(){
   var authors = [];
