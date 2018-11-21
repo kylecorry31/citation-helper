@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/pop-web.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+
+      <section id="article-title">
+        <h1>Cite a journal article</h1>
+        <label>
+          <p>Article title</p>
+          <input type="text" id="article-title-input">
+        </label>
+        <label>
+          <p>DOI</p>
+          <input type="text" id="doi">
+        </label>
+      </section>
+
+      <section id="author-section">
+        <h2>Author information</h2>
+        <div class="author-form">
+          <label>
+            <p>First name</p>
+            <input type="text" id="author1-first-name">
+          </label>
+          <label>
+            <p>Last name</p>
+            <input type="text" id="author1-last-name">
+          </label>
+        </div>
+        <div id="extra-authors">
+
+        </div>
+        <a href="#" id="add-author">+ Add another author</a>
+      </section>
+
+      <section id="article">
+        <h2>Publication information</h2>
+        <label>
+          <p>Journal title</p>
+          <input type="text" id="journal">
+        </label>
+
+        <div class="date-form">
+          <label>
+            <p>Volume</p>
+            <input type="number" id="volume">
+          </label>
+          <label>
+            <p>Issue date</p>
+            <input type="text" id="issue-date">
+          </label>
+          <label>
+            <p>Issue number</p>
+            <input type="number" id="issue-num">
+          </label>
+        </div>
+
+        <label>
+          <p>Page(s)</p>
+          <input type="text" id="pages">
+        </label>
+
+      </section>
+
+      <section id="submit-section">
+        <button type="button" id="submit-btn">Create Chicago citation</button>
+        <p>|</p>
+        <button type="button" id="clear-btn" class="thin-btn">Clear</button>
+      </section>
+
+      <section id="citation-section" class="hidden">
+        <h2>Chicago Bibliography Citation</h2>
+        <div id="citation-area">
+          <p id="citation">---</p>
+          <div class="tooltip-holder">
+            <img class="clippy" id="copy" class="btn" src="img/copy.svg" alt="Copy to clipboard" data-clipboard-action="copy" data-clipboard-target="#citation">
+            <div class="tooltip hidden" id="copy-tooltip">
+              Copied!
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+  <script src="js/cite-journal-chicago.js" charset="utf-8"></script>
+
+</html>
