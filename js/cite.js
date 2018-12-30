@@ -20,13 +20,13 @@ clipboard.on('success', function(e) {
 
 id('clear-btn').addEventListener('click', resetForm);
 
-id('submit-btn').addEventListener('click', (event) => {
+id('submit-btn').addEventListener('click', () => {
   var citation = createCitation(createArticleInfo());
   id('citation').innerHTML = citation;
   id('citation-section').classList.remove('hidden');
 });
 
-id('add-author').addEventListener('click', (event) => {
+id('add-author').addEventListener('click', () => {
   authorCount++;
 
   var div = document.createElement('div');
@@ -85,70 +85,71 @@ function createArticleInfo(){
 
 
 function createCitation(info){
-
-  var authors = '';
-  if(info.authors){
-    var numAuthors = info.authors.length;
-    info.authors.forEach((author, index) => {
-      if (author.first){
-        authors += `${author.last}, ${author.first.charAt(0)}`;
-        if (index !== numAuthors - 1){
-          authors += '.';
-        }
-      } else {
-        authors += author.last;
-      }
-
-      if (index === numAuthors - 2){
-        authors += " & ";
-      } else if (index !== numAuthors - 1){
-        authors += ", ";
-      } else {
-        authors += ".";
-      }
-
-    });
-
-  }
-
-
-  var formattedDate = formatDate(info.date);
-  var date = `${formattedDate ? formattedDate : 'n.d.'}`
-  var fullUrl = `${info.url ? " Retrieved from " + info.url: ""}`
-  var title = info.title ? " " + info.title + "." : "";
-
-  if (authors){
-    return `${authors} (${date}).${title}${fullUrl}`;
-  } else {
-    return `${title} (${date}).${fullUrl}`;
-
-  }
-
+  return APA.citeWebsite(info);
 }
-
-function formatDate(date){
-  var day = date.day;
-  var month = date.month;
-  var year = date.year;
-
-  if (typeof date === 'undefined' || !year){
-    return null;
-  }
-
-  if (day){
-    day = " " + day;
-  }
-
-  if (month === ''){
-    return `${year}`;
-  } else {
-    return `${year}, ${month}${day}`;
-  }
-
-
-}
-
 
 function id(id){
   return document.getElementById(id);
+}
+
+class APA {
+
+  static _formatAuthors(authors){
+    var a = "";
+    var numAuthors = authors.length;
+    authors.forEach((author, index) => {
+      if (author.first){
+        a += `${author.last}, ${author.first.charAt(0)}`;
+        if (index !== numAuthors - 1){
+          a += '.';
+        }
+      } else {
+        a += author.last;
+      }
+
+      if (index === numAuthors - 2){
+        a += " & ";
+      } else if (index !== numAuthors - 1){
+        a += ", ";
+      } else {
+        a += ".";
+      }
+    });
+    return a;
+  }
+
+  static _formatDate(date){
+    var day = date.day;
+    var month = date.month;
+    var year = date.year;
+
+    if (typeof date === 'undefined' || !year){
+      return null;
+    }
+
+    if (day){
+      day = " " + day;
+    }
+
+    if (month === ''){
+      return `${year}`;
+    } else {
+      return `${year}, ${month}${day}`;
+    }
+  }
+
+  static citeWebsite(info){
+    var authors = info.authors ? APA._formatAuthors(info.authors) : "";
+    var formattedDate = APA._formatDate(info.date);
+    var date = formattedDate ? formattedDate : 'n.d.';
+    var fullUrl = info.url ? " Retrieved from " + info.url: "";
+    var title = info.title ? " " + info.title + "." : "";
+
+    if (authors){
+      return `${authors} (${date}).${title}${fullUrl}`;
+    } else {
+      return `${title} (${date}).${fullUrl}`;
+    }
+  }
+
 }
